@@ -6,7 +6,6 @@ import Mingle from "../../components/Mingle";
 import { getPosts } from '../../actions/post';
 export default async function feed(){
 const posts = await getPosts();
-console.log(posts);
   return (
     <>
       <Navbar />

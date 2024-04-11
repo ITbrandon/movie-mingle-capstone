@@ -1,7 +1,9 @@
 import React from 'react'
 import Navbar from "../../components/Navbar";
 import Mingle from "../../components/Mingle";
-const page = () => {
+import { getUserPosts } from '../../actions/post';
+export default async function myposts() {
+const posts = await getUserPosts()
   return (
     <>
       <Navbar />
@@ -10,4 +12,4 @@ const page = () => {
   );
 }
 
-export default page
+
