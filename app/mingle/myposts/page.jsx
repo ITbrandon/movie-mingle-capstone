@@ -1,9 +1,11 @@
 import React from 'react'
 import Navbar from "../../components/Navbar";
 import Mingle from "../../components/Mingle";
-import { getUserPosts } from '../../actions/post';
+import { deletePost, getUserPosts, updatePost } from '../../actions/post';
 export default async function myposts() {
-const posts = await getUserPosts()
+const userPosts = await getUserPosts();
+const updatePosts = await updatePost();
+const deletePosts = await deletePost();
   return (
     <>
       <Navbar />

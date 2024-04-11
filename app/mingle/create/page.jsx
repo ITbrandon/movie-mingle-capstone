@@ -2,7 +2,9 @@ import React from 'react'
 import Navbar from '../../components/Navbar';
 import Mingle from '../../components/Mingle';
 import Button from '../../components/Button';
-const page = () => {
+import { createPost } from '../../actions/post';
+export default async function create() {
+const newPost = await createPost();
   return (
     <>
       <Navbar />
@@ -22,4 +24,3 @@ const page = () => {
   );
 }
 
-export default page
