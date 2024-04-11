@@ -10,22 +10,16 @@ const Movie = () => {
   const getData = async () => {
     const response = await fetch(url);
     const data = await response.json();
-    // console.log("response", data);
-    // console.log(data.results[0]);
     return data;
   };
 
   useEffect(() => {
     getData()
     .then((value) => {
-      // console.log('value', value)
       setMovies(value.results);
     })
   }, [])
   
-
-  // console.log("strings",getData())
-  // const movies = getData();
 
   return (
     <ul className=" text-orange-600 grid grid-cols-4 w-full">

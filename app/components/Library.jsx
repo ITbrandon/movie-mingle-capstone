@@ -3,12 +3,18 @@
 import React, { useEffect, useState } from "react";
 
 const Library = () => {
+  const [searchValue, setSearchValue] = useState("");
+  const [movies, setMovies] = useState([]);
 
-   const [movies, setMovies] = useState([]);
-   const url =
+  const handleChange = (event) => {
+    setSearchValue(event.target.value);
+  };
+
+  const url =
      "https://api.themoviedb.org/3/discover/movie?api_key=515c06361867cda878865171c07f1df6";
 
-  const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${input.value}&api_key=515c06361867cda878865171c07f1df6`;
+  //  const url = `https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=515c06361867cda878865171c07f1df6`;
+
 
    const getData = async () => {
      const response = await fetch(url);
@@ -25,7 +31,13 @@ const Library = () => {
   return (
     <>
       <div className="flex items-center justify-center">
-        <input type="text" className="input p-2 rounded-l-xl" placeholder="search" />
+        <input
+          type="text"
+          className="input p-2 rounded-l-xl"
+          placeholder="search"
+          value={searchValue}
+          onChange={handleChange}
+        />
         <button className="bg-orange-600 p-2 text-white rounded-r-xl hover:bg-orange-800 duration-300">
           Search
         </button>
