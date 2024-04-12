@@ -3,17 +3,16 @@
 import React, { useEffect, useState } from "react";
 
 const Library = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState(window.localStorage.getItem("SAVE_SEARCH") || "");
   const [movies, setMovies] = useState([]);
 
   const handleChange = (event) => {
     setSearchValue(event.target.value);
   };
 
-  const url =
-     "https://api.themoviedb.org/3/discover/movie?api_key=515c06361867cda878865171c07f1df6";
-
-  //  const url = `https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=515c06361867cda878865171c07f1df6`;
+   const url = searchValue
+     ? `https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=515c06361867cda878865171c07f1df6`
+     : "https://api.themoviedb.org/3/discover/movie?api_key=515c06361867cda878865171c07f1df6";
 
 
    const getData = async () => {
@@ -26,7 +25,8 @@ const Library = () => {
      getData().then((value) => {
        setMovies(value.results);
      });
-   }, []);
+     window.localStorage.setItem("SAVE_SEARCH", searchValue);
+   }, [searchValue]);
 
   return (
     <>
