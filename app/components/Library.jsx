@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 const Library = () => {
-  const [searchValue, setSearchValue] = useState(window.localStorage.getItem("SAVE_SEARCH") || "");
+  const [searchValue, setSearchValue] = useState(localStorage.getItem("SAVE_SEARCH") || "");
   const [movies, setMovies] = useState([]);
 
   const handleChange = (event) => {
@@ -25,7 +25,7 @@ const Library = () => {
      getData().then((value) => {
        setMovies(value.results);
      });
-     window.localStorage.setItem("SAVE_SEARCH", searchValue);
+     localStorage.setItem("SAVE_SEARCH", searchValue);
    }, [searchValue]);
 
   return (
