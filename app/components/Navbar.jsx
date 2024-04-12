@@ -8,8 +8,8 @@ const navLinks = [
   },
 
   {
-    title: "Gallery",
-    href: "/gallery",
+    title: "Movies",
+    href: "/movies",
   },
 
   {

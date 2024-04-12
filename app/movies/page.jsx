@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Carousel from "../components/Carousel";
 import Library from "../components/Library";
 import Footer from "../components/Footer"
-const gallery = () => {
+const movies = () => {
   return (
     <main>
       <Navbar />
@@ -15,4 +15,4 @@ const gallery = () => {
   );
 };
 
-export default gallery;
+export default movies;

@@ -33,16 +33,13 @@ const Library = () => {
       <div className="flex items-center justify-center">
         <input
           type="text"
-          className="input p-2 rounded-l-xl"
+          className="input p-2 border-2 border-solid border-orange-600 rounded-xl"
           placeholder="search"
           value={searchValue}
           onChange={handleChange}
         />
-        <button className="bg-orange-600 p-2 text-white rounded-r-xl hover:bg-orange-800 duration-300">
-          Search
-        </button>
       </div>
-      <span className="error text-black bg-red-600"></span>
+      {/* <span className="error text-black bg-red-600"></span> */}
       <section className=" text-orange-600 grid grid-cols-4 w-full gap-4 p-4 mt-11">
         {movies.map((movie, index) => (
           <>
