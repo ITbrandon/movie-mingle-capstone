@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Mingle from '../components/Mingle'
 import Button from '../components/Button'
+import Footer from '../components/Footer'
 const page = () => {
   return (
     <>
@@ -22,6 +23,7 @@ const page = () => {
           <a href="/mingle/feed">Check The Feed</a>
         </Button>
       </div>
+      <Footer />
     </>
   );
 }

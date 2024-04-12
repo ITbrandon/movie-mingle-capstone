@@ -3,10 +3,8 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-// import React, { useEffect } from "react";
-// import { prisma } from "../lib/db";
 import Navbar from "./components/Navbar";
-// import { getUserPosts } from "./actions/post"
+import Footer from "./components/Footer"
 import Button from "./components/Button";
 export default async function Home() {
   const supabase = createServerComponentClient({ cookies });
@@ -14,8 +12,6 @@ export default async function Home() {
   if (!data.session?.user) {
     redirect("/login");
   }
-// const posts = await getUserPosts("7ce5913c-172c-452a-95bc-b5e64479ba57");
-// console.log(posts);
   return (
     <main>
       <Navbar />
@@ -36,6 +32,7 @@ export default async function Home() {
           </Button>
         </section>
       </article>
+      <Footer />
     </main>
   );
 }

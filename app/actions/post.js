@@ -36,7 +36,9 @@ export async function getUserPosts(userId) {
       },
     });
     return post;
-  } catch (error) {
+  } 
+  
+  catch (error) {
     console.error(error);
   }
 }

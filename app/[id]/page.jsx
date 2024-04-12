@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Navbar from "../components/Navbar";
-
+import Footer from "../components/Footer";
 const page = () => {
 
 const params = useParams();
@@ -36,6 +36,7 @@ useEffect(() => {
           <p>{movies.overview}</p>
         </section>
       </main>
+      <Footer />
     </>
   );
 }
