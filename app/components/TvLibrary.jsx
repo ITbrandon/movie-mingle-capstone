@@ -45,7 +45,7 @@ const TvLibrary = () => {
       <section className=" text-orange-600 grid grid-cols-4 w-full gap-4 p-4 mt-11">
         {tvShows.map((show, index) => (
           <>
-            <a href={`/${show.id}`}>
+            <a href={`/tvshows/${show.id}`}>
               <article className="border-6 border-solid border-orange-600 bg-orange-600 flex flex-col items-center justify-evenly rounded-xl hover:opacity-60 duration-300">
                 <img
                   src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}

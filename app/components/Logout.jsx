@@ -11,6 +11,7 @@ export default function Logout() {
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.push('/login');
+    localStorage.clear();
   };
 
   return (

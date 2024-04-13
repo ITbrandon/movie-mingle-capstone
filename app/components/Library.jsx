@@ -43,11 +43,10 @@ const Library = () => {
           onChange={handleChange}
         />
       </div>
-      {/* <span className="error text-black bg-red-600"></span> */}
       <section className=" text-orange-600 grid grid-cols-4 w-full gap-4 p-4 mt-11">
         {movies.map((movie, index) => (
           <>
-            <a href={`/${movie.id}`}>
+            <a href={`/movies/${movie.id}`}>
               <article className="border-6 border-solid border-orange-600 bg-orange-600 flex flex-col items-center justify-evenly rounded-xl hover:opacity-60 duration-300">
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
