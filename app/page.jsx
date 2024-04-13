@@ -25,7 +25,7 @@ export default async function Home() {
         <h4>Discover the vast world of Cinema or Discuss your favorite movies with other users</h4>
         <section className="flex items-center gap-3">
           <Button>
-            <a href="/gallery">Explore</a>
+            <a href="/movies">Explore</a>
           </Button>
           <Button>
           <a href="/mingle">Socialize</a>

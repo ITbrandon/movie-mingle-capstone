@@ -3,7 +3,12 @@
 import React, { useEffect, useState } from "react";
 
 const Library = () => {
-  const [searchValue, setSearchValue] = useState("");
+ let storedSearch;
+  if(typeof window !== "undefined")
+  {
+   storedSearch = localStorage.getItem("SAVE_SEARCH") || "";
+  }
+  const [searchValue, setSearchValue] = useState(storedSearch);
   const [movies, setMovies] = useState([]);
 
   const handleChange = (event) => {
@@ -13,7 +18,6 @@ const Library = () => {
    const url = searchValue
      ? `https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=515c06361867cda878865171c07f1df6`
      : "https://api.themoviedb.org/3/discover/movie?api_key=515c06361867cda878865171c07f1df6";
-
 
    const getData = async () => {
      const response = await fetch(url);
@@ -25,7 +29,7 @@ const Library = () => {
      getData().then((value) => {
        setMovies(value.results);
      });
-    //  localStorage.setItem("SAVE_SEARCH", searchValue);
+     localStorage.setItem("SAVE_SEARCH", searchValue);
    }, [searchValue]);
 
   return (
@@ -33,7 +37,7 @@ const Library = () => {
       <div className="flex items-center justify-center">
         <input
           type="text"
-          className="input p-2 border-2 border-solid border-orange-600 rounded-xl"
+          className="p-2 border-2 border-solid border-orange-600 rounded-xl"
           placeholder="search"
           value={searchValue}
           onChange={handleChange}
