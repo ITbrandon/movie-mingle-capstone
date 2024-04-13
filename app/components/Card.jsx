@@ -1,10 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-// import { useParams } from "next/navigation";
 const Card = ({ params }) => {
-  console.log(params)
-  // const params = useParams();
   const [movies, setMovies] = useState([]);
   const url = `https://api.themoviedb.org/3/movie/${params.id}?api_key=515c06361867cda878865171c07f1df6`;
 
