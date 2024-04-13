@@ -13,6 +13,11 @@ const navLinks = [
   },
 
   {
+    title: "TV Shows",
+    href: "/tvshows",
+  },
+
+  {
     title: "Mingle",
     href: "/mingle",
   },
