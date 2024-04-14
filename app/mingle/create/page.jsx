@@ -1,27 +1,47 @@
 import React from 'react'
 import Navbar from '../../components/Navbar';
 import Mingle from '../../components/Mingle';
-import Button from '../../components/Button';
 import Footer from "../../components/Footer";
-import { createPost } from '../../actions/post';
 export default async function create() {
-const newPost = await createPost();
   return (
     <>
       <Navbar />
       <Mingle />
-      <form className='text-center mt-6'>
-            <div class="mb-4">
-                <label for="title" class="block text-orange-600 font-semibold mb-2">Title</label>
-                <input type="text" id="title"/>
-            </div>
-            <div class="mb-4">
-                <label for="content" class="block text-orange-600 font-semibold mb-2">Content</label>
-                <textarea id="content" rows="8"></textarea>
-            </div>
-            <Button type="submit" class="bg-orange-600 text-white font-semibold py-2 px-4 rounded hover:bg-orange-800">Submit</Button>
-        </form>
-        <Footer />
+      <section className="flex flex-col md:flex-row gap-4 h-screen items-center justify-center p-4">
+        <a href="/mingle/create/selectmovie">
+          <article
+            className="bg-orange-600 p-4 flex flex-col items-center justify-center rounded-xl duration-300 cursor-pointer h-96 w-96 hover:opacity-60 hover:text-white text-orange-600"
+            style={{
+              backgroundImage:
+                "url('https://i.ytimg.com/vi/kv8aFut7MUU/maxresdefault.jpg')",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+            }}
+          >
+            <h1 className="text-center text-4xl font-bold">
+              Create a Movie Post
+            </h1>
+          </article>
+        </a>
+        <a href="#">
+          <article
+            className="bg-orange-600 p-4 flex flex-col items-center justify-center rounded-xl duration-300 cursor-pointer h-96 w-96 hover:opacity-60 hover:text-white text-orange-600"
+            style={{
+              backgroundImage:
+                "url('https://www.comingsoon.net/wp-content/uploads/sites/3/2022/11/tlou-posters.jpg')",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+            }}
+          >
+            <h1 className="text-center text-4xl font-bold">
+              Create a Tv Show Post
+            </h1>
+          </article>
+        </a>
+      </section>
+      <Footer />
     </>
   );
 }
