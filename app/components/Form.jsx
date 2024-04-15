@@ -28,6 +28,7 @@ const handleSubmit = async(e) => {
 };
   return (
     <div className="p-4">
+      <h1 className="text-orange-600 font-bold text-3xl text-center mt-8"></h1>
       <form
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit}
@@ -77,7 +78,7 @@ const handleSubmit = async(e) => {
             name="movie"
             placeholder="Optional"
             value={image}
-            onChange={(e) => setMovie(e.target.value)}
+            onChange={(e) => setImage(e.target.value)}
           />
         </div>
         <div className="flex items-center justify-between">
