@@ -2,11 +2,10 @@
 
 import React, { useState } from "react";
 import { createPost } from "../actions/post";
-export default function Form({ username }) {
+export default function Form({ username, userId }) {
 const [title, setTitle] = useState("");
 const [content, setContent] = useState("");
 const [image, setImage] = useState("");
-console.log(username);
 const handleSubmit = async(e) => {
   e.preventDefault();
   const postObject = { title, content, image, user:username };
@@ -77,7 +76,7 @@ const handleSubmit = async(e) => {
             name="movie"
             placeholder="Optional"
             value={image}
-            onChange={(e) => setMovie(e.target.value)}
+            onChange={(e) => setImage(e.target.value)}
           />
         </div>
         <div className="flex items-center justify-between">
