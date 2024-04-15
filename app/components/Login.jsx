@@ -43,7 +43,7 @@ export default function Login() {
       <div
         className="flex flex-col md:flex-row justify-center items-center gap-8 h-screen w-full"
       >
-        <form className="flex flex-col gap-4 bg-black p-4 border-2 border-solid border-orange-600 text-white rounded-xl mt-4 w-1/2">
+        <form className="flex flex-col gap-4 bg-black p-4 border-2 border-solid border-orange-600 text-white rounded-xl mt-4 w-2/3">
           <h1 className="text-center font-bold">Welcome</h1>
           <label className="grid">
             Email

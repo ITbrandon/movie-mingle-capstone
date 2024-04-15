@@ -5,7 +5,7 @@ import { prisma } from '../../lib/db'
 export async function getPosts() {
   try {
   const posts = await prisma.post.findMany();
-  return posts
+  return posts.reverse();
   }
 
   catch(error) {

@@ -19,9 +19,9 @@ const TvCard = ({ params }) => {
 
   return (
     <>
-      <main className="flex">
+      <main className="flex flex-col md:flex-row">
         <img
-          className="h-screen w-1/2 bg-cover bg-center"
+          className="h-screen w-full md:w-1/2 bg-cover bg-center"
           src={`https://image.tmdb.org/t/p/w500${tvShows.backdrop_path}`}
           alt="poster"
         />

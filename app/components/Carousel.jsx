@@ -18,7 +18,7 @@ function Carousel() {
     },
 
     {
-      url: `https://e0.pxfuel.com/wallpapers/97/800/desktop-wallpaper-movie-computer-background-467-03-kb.jpg`,
+      url: `https://static1.srcdn.com/wordpress/wp-content/uploads/2017/09/Jumanji-Welcome-to-the-Jungle-poster.jpg`,
     },
     {
       url: `https://wallpapercave.com/wp/wp4926059.jpg`,

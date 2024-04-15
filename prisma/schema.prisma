@@ -19,13 +19,7 @@ model Post {
   content String?
   image String?
   createdAt DateTime @default(now()) @db.Timestamp(6)
-  user   Profile @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  userId String  @db.Uuid
+  user   String?
+  userId String?
   @@map("post")
-}
-
-model Profile {
-  id    String @id @db.Uuid
-  posts Post[] 
-  @@map("profile")
 }

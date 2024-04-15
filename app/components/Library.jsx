@@ -43,7 +43,7 @@ const Library = () => {
           onChange={handleChange}
         />
       </div>
-      <section className=" text-orange-600 grid grid-cols-4 w-full gap-4 p-4 mt-11">
+      <section className=" text-orange-600 grid grid-cols-1 md:grid-cols-4 w-full gap-4 p-4 mt-11">
         {movies.map((movie, index) => (
           <>
             <a href={`/movies/${movie.id}`}>

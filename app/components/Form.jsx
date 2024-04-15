@@ -8,7 +8,7 @@ const [content, setContent] = useState("");
 const [image, setImage] = useState("");
 const handleSubmit = async(e) => {
   e.preventDefault();
-  const postObject = { title, content, image, user:username };
+  const postObject = { title, content, image, user:username, userId:userId };
   
   try {
     const response = await createPost(postObject);
