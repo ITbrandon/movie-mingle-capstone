@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Mingle from "./Mingle";
 import Footer from "./Footer";
-export default async function feed({ posts }) {
+export default function feed({ posts }) {
   const getImage = async (imageText, type) => {
     if (type === "Tv") {
       const imageUrl = `https://api.themoviedb.org/3/search/tv?query=${imageText}&api_key=515c06361867cda878865171c07f1df6`;
