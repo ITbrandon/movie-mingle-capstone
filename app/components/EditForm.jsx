@@ -1,38 +1,58 @@
 "use client"
 
 import React, { useState } from "react";
+import { getPost, updatePost, deletePost } from "../actions/post";
 import { useRouter } from "next/navigation";
-import { createPost } from "../actions/post";
-export default function Form({ username, userId }) {
-const [title, setTitle] = useState("");
-const [content, setContent] = useState("");
-const [image, setImage] = useState("");
-const router = useRouter();
-const handleSubmit = async(e) => {
-  e.preventDefault();
-  const postObject = { title, content, image, user:username, userId:userId };
-  
-  try {
-    const response = await createPost(postObject);
-    if (response.status === 201) {
-      console.log("Post created successfully:", response.data);
-      setTitle("");
-      setContent("");
-      setMovie("");
-    } 
-    else {
-      console.log("Failed to create post:", response.data);
+export default function Form({ params }) {
+  const router = useRouter();
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [image, setImage] = useState("");
+  const handleEdit = async (e) => {
+    e.preventDefault();
+    const postObject = {
+      title,
+      content,
+      image
+    };
+
+    try {
+      const response = await updatePost(params.id, postObject);
+      if (response.status === 201) {
+        console.log("Edit made successfully:", response.data);
+        setTitle("");
+        setContent("");
+        setMovie("");
+      } else {
+        console.log("Failed to Edit post:", response.data);
+      }
+    } catch (error) {
+      console.error("Error Editing Post post:", error);
     }
-    router.push("/mingle/create/confirm");
-  } catch (error) {
-    console.error("Error creating post:", error);
+    router.push("/mingle/myposts");
+  };
+
+  const handleDelete = async () => {
+    try {
+      const response = await deletePost(params.id);
+      if (response.status === 201) {
+        console.log("Delete made successfully:", response.data);
+        setTitle("");
+        setContent("");
+        setMovie("");
+      } else {
+        console.log("Failed to Delete post:", response.data);
+      }
+    } catch (error) {
+      console.error("Error Deleting Post post:", error);
+    }
+    router.push("/mingle/myposts");
   }
-};
   return (
     <div className="p-4">
       <form
+        onSubmit={handleEdit}
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-        onSubmit={handleSubmit}
       >
         <div className="mb-4">
           <label
@@ -89,12 +109,16 @@ const handleSubmit = async(e) => {
             className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline duration-300"
             type="submit"
           >
-            Post
+            Finish Edit
+          </button>
+          <button
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline duration-300"
+            onClick={handleDelete}
+          >
+            Delete Post
           </button>
         </div>
       </form>
     </div>
   );
 }
-
-

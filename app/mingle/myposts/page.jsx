@@ -2,11 +2,10 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Mingle from "../../components/Mingle";
 import Footer from "../../components/Footer";
-import { deletePost, getUserPosts } from "../../actions/post";
+import { getUserPosts } from "../../actions/post";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 export default async function myposts() {
-
   const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.auth.getSession();
 
@@ -19,7 +18,6 @@ export default async function myposts() {
     const imagePath = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
     return imagePath;
   };
-  
 
   return (
     <>
@@ -40,9 +38,11 @@ export default async function myposts() {
                   <img src={image} alt="image" width={200} height={200} />
                 </div>
                 <div className="flex items-center gap-4 ">
-                  <button className="p-2 border-2 border-solid border-red-600 bg-white text-red-600 rounded-xl duration-300 hover:bg-red-600 hover:text-white">
-                    Delete
-                  </button>
+                  <a href={`/mingle/myposts/${post.id}`}>
+                    <button className="p-2 border-2 border-solid border-orange-600 bg-white text-orange-600 rounded-xl duration-300 hover:bg-orange-600 hover:text-white">
+                      Edit
+                    </button>
+                  </a>
                 </div>
               </article>
             </>
