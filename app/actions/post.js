@@ -35,7 +35,7 @@ export async function getUserPosts(userId) {
         userId,
       },
     });
-    return post;
+    return post.reverse();
   } 
   
   catch (error) {

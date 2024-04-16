@@ -27,7 +27,6 @@ return username;
       <section className="flex flex-col items-center gap-4 p-8">
         {posts.map(async (post, index) => {
           const image = await getImage(post.image)
-          console.log(image)
           return (
             <>
               <article className="p-4 bg-white text-black w-3/4 md:w-1/2 rounded-lg">
