@@ -1,13 +1,13 @@
 "use client"
 
 import React, { useState } from "react";
-import { getPost, updatePost, deletePost } from "../actions/post";
+import { updatePost, deletePost } from "../actions/post";
 import { useRouter } from "next/navigation";
-export default function Form({ params }) {
+export default function Form({ params, post }) {
   const router = useRouter();
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [image, setImage] = useState("");
+  const [title, setTitle] = useState(post.title);
+  const [content, setContent] = useState(post.content);
+  const [image, setImage] = useState(post.image);
   const handleEdit = async (e) => {
     e.preventDefault();
     const postObject = {
@@ -92,7 +92,7 @@ export default function Form({ params }) {
             className="block text-orange-700 text-sm font-bold mb-2"
             htmlFor="movie"
           >
-            Movie Name
+            {post.screen} Name
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
