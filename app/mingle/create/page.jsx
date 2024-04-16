@@ -24,7 +24,7 @@ export default async function create() {
             </h1>
           </article>
         </a>
-        <a href="#">
+        <a href="/mingle/create/selectshow">
           <article
             className="bg-orange-600 p-4 flex flex-col items-center justify-center rounded-xl duration-300 cursor-pointer h-96 w-96 hover:opacity-60 hover:text-white text-orange-600"
             style={{

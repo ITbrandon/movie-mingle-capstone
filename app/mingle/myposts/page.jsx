@@ -11,12 +11,24 @@ export default async function myposts() {
 
   const userPosts = await getUserPosts(data.session?.user.id);
 
-  const getImage = async (imageText) => {
-    const imageUrl = `https://api.themoviedb.org/3/search/movie?query=${imageText}&api_key=515c06361867cda878865171c07f1df6`;
-    const response = await fetch(imageUrl);
-    const data = await response.json();
-    const imagePath = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
-    return imagePath;
+  const getImage = async (imageText, type) => {
+    if(type === "Tv")
+    {
+      const imageUrl = `https://api.themoviedb.org/3/search/tv?query=${imageText}&api_key=515c06361867cda878865171c07f1df6`;
+      const response = await fetch(imageUrl);
+      const data = await response.json();
+      const imagePath = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
+      return imagePath;
+    }
+    else
+    {
+      const imageUrl = `https://api.themoviedb.org/3/search/movie?query=${imageText}&api_key=515c06361867cda878865171c07f1df6`;
+      const response = await fetch(imageUrl);
+      const data = await response.json();
+      const imagePath = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
+      return imagePath;
+    }
+
   };
 
   return (
@@ -25,7 +37,7 @@ export default async function myposts() {
       <Mingle />
       <section className="flex flex-col items-center gap-4 p-8">
         {userPosts.map(async (post, index) => {
-          const image = await getImage(post.image);
+          const image = await getImage(post.image, post.screen);
           return (
             <>
               <article className="p-4 bg-white text-black w-3/4 md:w-1/2 rounded-lg">

@@ -1,33 +1,39 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createPost } from "../actions/post";
 export default function Form({ username, userId }) {
-const [title, setTitle] = useState("");
-const [content, setContent] = useState("");
-const [image, setImage] = useState("");
-const router = useRouter();
-const handleSubmit = async(e) => {
-  e.preventDefault();
-  const postObject = { title, content, image, user:username, userId:userId, screen:"Movie" };
-  
-  try {
-    const response = await createPost(postObject);
-    if (response.status === 201) {
-      console.log("Post created successfully:", response.data);
-      setTitle("");
-      setContent("");
-      setMovie("");
-    } 
-    else {
-      console.log("Failed to create post:", response.data);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [image, setImage] = useState("");
+  const router = useRouter();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const postObject = {
+      title,
+      content,
+      image,
+      user: username,
+      userId: userId,
+      screen: 'Tv'
+    };
+
+    try {
+      const response = await createPost(postObject);
+      if (response.status === 201) {
+        console.log("Post created successfully:", response.data);
+        setTitle("");
+        setContent("");
+        setMovie("");
+      } else {
+        console.log("Failed to create post:", response.data);
+      }
+      router.push("/mingle/create/confirm");
+    } catch (error) {
+      console.error("Error creating post:", error);
     }
-    router.push("/mingle/create/confirm");
-  } catch (error) {
-    console.error("Error creating post:", error);
-  }
-};
+  };
   return (
     <div className="p-4">
       <form
@@ -72,14 +78,14 @@ const handleSubmit = async(e) => {
             className="block text-orange-700 text-sm font-bold mb-2"
             htmlFor="movie"
           >
-            Movie Name
+            Tv Show Name
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="movie"
             type="text"
             name="movie"
-            placeholder="Movie"
+            placeholder="Tv Show"
             value={image}
             onChange={(e) => setImage(e.target.value)}
           />
@@ -96,5 +102,3 @@ const handleSubmit = async(e) => {
     </div>
   );
 }
-
-
