@@ -1,5 +1,3 @@
-"use server"
-
 import React from 'react'
 import Navbar from "../../components/Navbar";
 import Mingle from "../../components/Mingle";
