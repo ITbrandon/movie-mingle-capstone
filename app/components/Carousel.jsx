@@ -8,10 +8,10 @@ function Carousel() {
 
   const slides = [
     {
-      url: `https://wallpapercave.com/wp/wp7947147.jpg`,
+      url: `https://cdn.mos.cms.futurecdn.net/5eMvCxuWYwXJEE685B8YRE.jpg`,
     },
     {
-      url: `https://cdn.mos.cms.futurecdn.net/5eMvCxuWYwXJEE685B8YRE.jpg`,
+      url: `https://wallpapercave.com/wp/wp7947147.jpg`,
     },
     {
       url: `https://wallpapercave.com/wp/wp4933381.jpg`,
